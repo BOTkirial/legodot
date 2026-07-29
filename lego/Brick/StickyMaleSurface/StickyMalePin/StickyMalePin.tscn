@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://wy6c8w7qr4f5"]
+
+[ext_resource type="Material" uid="uid://ceffjgy7sxl8k" path="res://lego/Brick/BrickMaterial.tres" id="1_61726"]
+[ext_resource type="Script" uid="uid://cdjcyvs36pecs" path="res://lego/Brick/StickyMaleSurface/StickyMalePin/sticky_male_pin.gd" id="1_l1wi7"]
+[ext_resource type="Material" uid="uid://dni1ugve8k7q8" path="res://lego/_commons/Materials/Overlay/overlay_material.tres" id="2_c0k5q"]
+[ext_resource type="Script" uid="uid://ce5wg26m4m4lc" path="res://lego/_commons/Materials/Overlay/brick_overlay.gd" id="3_61726"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pqde"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l1wi7"]
+material = ExtResource("1_61726")
+top_radius = 0.0225
+bottom_radius = 0.0225
+height = 0.015
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqjvu"]
+resource_local_to_scene = true
+render_priority = 1
+transparency = 1
+albedo_color = Color(0.392157, 1, 0.392157, 0.196078)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uqjvu"]
+material = ExtResource("2_c0k5q")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.02
+
+[node name="StickablePin" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_0pqde")
+mesh = SubResource("CylinderMesh_l1wi7")
+script = ExtResource("1_l1wi7")
+
+[node name="Overlay" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_uqjvu")
+mesh = SubResource("CylinderMesh_uqjvu")
+script = ExtResource("3_61726")
+metadata/_custom_type_script = "uid://ce5wg26m4m4lc"

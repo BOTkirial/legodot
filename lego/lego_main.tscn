@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://cela6k1mbatg1"]
+
+[ext_resource type="PackedScene" uid="uid://dsofw05c7xi0" path="res://lego/_commons/Cameras/OrbitCamera/OrbitCamera.tscn" id="1_43hw7"]
+[ext_resource type="PackedScene" uid="uid://bcm63af487n6n" path="res://lego/Brick/Brick.tscn" id="2_v0y17"]
+[ext_resource type="PackedScene" uid="uid://02uounwhg0ql" path="res://lego/Insertable/InsertableMale.tscn" id="3_08ge0"]
+[ext_resource type="PackedScene" uid="uid://dd3h2oc44u8gr" path="res://lego/UI/BrickConfigurator.tscn" id="4_43hw7"]
+[ext_resource type="PackedScene" uid="uid://j8skmcso1eba" path="res://lego/Engine/Engine.tscn" id="5_uiufv"]
+[ext_resource type="PackedScene" uid="uid://dhbgoalnclsso" path="res://lego/Gear/Scenes/Gear_9.tscn" id="6_1sca5"]
+[ext_resource type="PackedScene" uid="uid://d3mm68clxvxea" path="res://lego/Gear/Scenes/Gear_10.tscn" id="7_2j65s"]
+[ext_resource type="PackedScene" uid="uid://cs8qe7v8p43sy" path="res://lego/Gear/Scenes/Gear_35.tscn" id="8_43pss"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_43hw7"]
+
+[sub_resource type="Sky" id="Sky_uiufv"]
+sky_material = SubResource("ProceduralSkyMaterial_43hw7")
+
+[sub_resource type="Environment" id="Environment_43hw7"]
+background_mode = 2
+sky = SubResource("Sky_uiufv")
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 4
+
+[node name="LegoMain" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_43hw7")
+
+[node name="CameraRig" parent="." instance=ExtResource("1_43hw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0937904, 0.0815, -0.203407)
+
+[node name="InsertableMale" parent="." instance=ExtResource("3_08ge0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.976056, 0.0246653, -0.360897)
+type = "klip"
+
+[node name="InsertableMale2" parent="." instance=ExtResource("3_08ge0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917604, 0, -0.556969)
+type = "klip"
+length = 2
+
+[node name="InsertableMale3" parent="." instance=ExtResource("3_08ge0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.276314, 0, -0.590261)
+
+[node name="InsertableMale4" parent="." instance=ExtResource("3_08ge0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792402, 5.96046e-08, -0.835064)
+type = "klip"
+length = 5
+
+[node name="InsertableMale5" parent="." instance=ExtResource("3_08ge0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.200201, 0.0144659, -0.729422)
+length = 2
+
+[node name="Motor-M" parent="." instance=ExtResource("5_uiufv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253126, 0, 0.0618994)
+
+[node name="gear_9" parent="." instance=ExtResource("6_1sca5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0809927, 0.0407811, 0)
+teethCount = 9
+
+[node name="gear_10" parent="." instance=ExtResource("7_2j65s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193962, 0, -0.121329)
+
+[node name="gear_35" parent="." instance=ExtResource("8_43pss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.914151, 0, 0.0392301)
+
+[node name="brick3x1" parent="." instance=ExtResource("2_v0y17")]
+transform = Transform3D(0.599917, 0, -0.800062, 0, 1, 0, 0.800062, 0, 0.599917, -1.15398, -5.96046e-08, -0.0979633)
+width = 1
+depth = 2
+withStickyMale = false
+isFlat = true
+
+[node name="brick2x1" parent="." instance=ExtResource("2_v0y17")]
+transform = Transform3D(0.259055, 0, -0.965863, 0, 1, 0, 0.965863, 0, 0.259055, -1.24842, -5.96046e-08, 0.114169)
+depth = 1
+nbInsertableFemale = 1
+type = "axle"
+
+[node name="brick2x6" parent="." instance=ExtResource("2_v0y17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.942641, 0, 0.572771)
+color = Color(0.877644, 0.0350518, 0.318747, 1)
+
+[node name="brick6x6" parent="." instance=ExtResource("2_v0y17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90165, -4.61853e-14, 0.676899)
+width = 6
+depth = 6
+
+[node name="BrickConfigurator" parent="." instance=ExtResource("4_43hw7")]
+
+[node name="EngineButtons_MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="EngineButtons_HorizontalContainer" type="HBoxContainer" parent="EngineButtons_MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4

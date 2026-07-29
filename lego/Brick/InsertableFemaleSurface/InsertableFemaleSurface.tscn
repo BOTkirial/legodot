@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfimo1h4w6k81"]
+
+[ext_resource type="Script" uid="uid://c8g5klfwkpjyp" path="res://lego/Brick/InsertableFemaleSurface/insertable_female_surface.gd" id="1_d5bwy"]
+
+[node name="InsertReceiver" type="Node3D"]
+script = ExtResource("1_d5bwy")
+width = 3
+depth = 2

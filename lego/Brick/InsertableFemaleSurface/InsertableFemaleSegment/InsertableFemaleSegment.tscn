@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://6c70jx3kwimo"]
+
+[ext_resource type="Script" uid="uid://ce805gfqa2pff" path="res://lego/Brick/InsertableFemaleSurface/InsertableFemaleSegment/insertable_female_segment.gd" id="1_xme6m"]
+[ext_resource type="Material" uid="uid://bx1jaawmsl5ri" path="res://lego/Brick/InsertableFemaleSurface/InsertableFemaleSegment/InsertableFemaleSegmentMaterial.tres" id="2_6xc0t"]
+[ext_resource type="Material" uid="uid://dni1ugve8k7q8" path="res://lego/_commons/Materials/Overlay/overlay_material.tres" id="3_ydvic"]
+[ext_resource type="Script" uid="uid://ce5wg26m4m4lc" path="res://lego/_commons/Materials/Overlay/brick_overlay.gd" id="4_wsk88"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cwro2"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.09
+
+[sub_resource type="BoxMesh" id="BoxMesh_yetq8"]
+size = Vector3(0.04, 0.02, 0.09)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvxqv"]
+size = Vector3(0.02, 0.04, 0.09)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wsk88"]
+material = ExtResource("3_ydvic")
+size = Vector3(0.05, 0.05, 0.1)
+
+[node name="InsertableFemaleSegment" type="Node3D"]
+script = ExtResource("1_xme6m")
+
+[node name="InsertableFemaleSegmentKlip" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_cwro2")
+surface_material_override/0 = ExtResource("2_6xc0t")
+
+[node name="InsertableFemaleSegmentAxle" type="Node3D" parent="."]
+visible = false
+
+[node name="InsertableFemaleSegmentAxle-H" type="MeshInstance3D" parent="InsertableFemaleSegmentAxle"]
+mesh = SubResource("BoxMesh_yetq8")
+surface_material_override/0 = ExtResource("2_6xc0t")
+
+[node name="InsertableFemaleSegmentAxle-V" type="MeshInstance3D" parent="InsertableFemaleSegmentAxle"]
+mesh = SubResource("BoxMesh_kvxqv")
+surface_material_override/0 = ExtResource("2_6xc0t")
+
+[node name="Overlay" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wsk88")
+script = ExtResource("4_wsk88")
+metadata/_custom_type_script = "uid://ce5wg26m4m4lc"

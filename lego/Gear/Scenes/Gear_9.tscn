@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhbgoalnclsso"]
+
+[ext_resource type="PackedScene" uid="uid://c2gkkogo33p3r" path="res://lego/models/gears/gear_9.glb" id="1_jwwt5"]
+[ext_resource type="Script" uid="uid://0dhssy5jrabj" path="res://lego/Gear/gear.gd" id="2_56530"]
+[ext_resource type="Script" uid="uid://c8g5klfwkpjyp" path="res://lego/Brick/InsertableFemaleSurface/insertable_female_surface.gd" id="3_nsrsr"]
+[ext_resource type="Script" uid="uid://c0iglylg31sy1" path="res://lego/Brick/Draggable/draggable.gd" id="4_nsrsr"]
+[ext_resource type="Material" uid="uid://dni1ugve8k7q8" path="res://lego/_commons/Materials/Overlay/overlay_material.tres" id="5_kgju1"]
+[ext_resource type="Script" uid="uid://ce5wg26m4m4lc" path="res://lego/_commons/Materials/Overlay/brick_overlay.gd" id="5_tagad"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tagad"]
+size = Vector3(0.0844421, 0.0863647, 0.072998)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgju1"]
+material = ExtResource("5_kgju1")
+size = Vector3(0.085, 0.09, 0.07)
+
+[node name="gear_9" instance=ExtResource("1_jwwt5")]
+script = ExtResource("2_56530")
+
+[node name="InsertableFemaleSurface" type="Node3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0124017)
+script = ExtResource("3_nsrsr")
+type = "axle"
+metadata/_custom_type_script = "uid://c8g5klfwkpjyp"
+
+[node name="gear_9" parent="." index="1"]
+transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, -0.0409229, -0.041537, 0.0191436)
+
+[node name="Draggable" type="Area3D" parent="." index="2"]
+script = ExtResource("4_nsrsr")
+metadata/_custom_type_script = "uid://c0iglylg31sy1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draggable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000686646, 0.000640869, -0.0128174)
+shape = SubResource("BoxShape3D_tagad")
+
+[node name="Overlay" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0149943)
+mesh = SubResource("BoxMesh_kgju1")
+script = ExtResource("5_tagad")
+metadata/_custom_type_script = "uid://ce5wg26m4m4lc"

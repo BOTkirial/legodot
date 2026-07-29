@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpju0ewce6aoi"]
+
+[ext_resource type="PackedScene" uid="uid://dch6ifubbgvma" path="res://lego/models/gears/gear_25.glb" id="1_lpv1q"]
+[ext_resource type="Script" uid="uid://0dhssy5jrabj" path="res://lego/Gear/gear.gd" id="2_r7wgx"]
+[ext_resource type="Script" uid="uid://c8g5klfwkpjyp" path="res://lego/Brick/InsertableFemaleSurface/insertable_female_surface.gd" id="3_ttkj7"]
+[ext_resource type="Script" uid="uid://ce5wg26m4m4lc" path="res://lego/_commons/Materials/Overlay/brick_overlay.gd" id="4_jgwa2"]
+[ext_resource type="Material" uid="uid://dni1ugve8k7q8" path="res://lego/_commons/Materials/Overlay/overlay_material.tres" id="4_kb70q"]
+[ext_resource type="Script" uid="uid://c0iglylg31sy1" path="res://lego/Brick/Draggable/draggable.gd" id="6_djgey"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kb70q"]
+material = ExtResource("4_kb70q")
+size = Vector3(0.215, 0.22, 0.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ntfy4"]
+size = Vector3(0.236328, 0.226562, 0.0830078)
+
+[node name="gear_25" instance=ExtResource("1_lpv1q")]
+script = ExtResource("2_r7wgx")
+teethCount = 25
+
+[node name="gear_25" parent="." index="0"]
+transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, -0.105773, -0.106512, 0.0311704)
+
+[node name="InsertableFemaleSurface" type="Node3D" parent="." index="1"]
+script = ExtResource("3_ttkj7")
+type = "axle"
+metadata/_custom_type_script = "uid://c8g5klfwkpjyp"
+
+[node name="Overlay" type="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("BoxMesh_kb70q")
+script = ExtResource("4_jgwa2")
+metadata/_custom_type_script = "uid://ce5wg26m4m4lc"
+
+[node name="Draggable" type="Area3D" parent="." index="3"]
+script = ExtResource("6_djgey")
+metadata/_custom_type_script = "uid://c0iglylg31sy1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draggable" index="0"]
+shape = SubResource("BoxShape3D_ntfy4")

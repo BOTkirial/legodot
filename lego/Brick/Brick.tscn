@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcm63af487n6n"]
+
+[ext_resource type="Script" uid="uid://bxcved7qxhx7s" path="res://lego/Brick/brick.gd" id="1_iiodp"]
+[ext_resource type="Material" uid="uid://dni1ugve8k7q8" path="res://lego/_commons/Materials/Overlay/overlay_material.tres" id="2_8dugq"]
+[ext_resource type="Material" uid="uid://ceffjgy7sxl8k" path="res://lego/Brick/BrickMaterial.tres" id="2_btp41"]
+[ext_resource type="Script" uid="uid://ce5wg26m4m4lc" path="res://lego/_commons/Materials/Overlay/brick_overlay.gd" id="3_h2tm4"]
+[ext_resource type="Script" uid="uid://cjpcrpqv8gl6o" path="res://lego/Brick/StickyFemaleSurface/sticky_female_surface.gd" id="4_p5t4y"]
+[ext_resource type="Script" uid="uid://c0iglylg31sy1" path="res://lego/Brick/Draggable/draggable.gd" id="4_yr7ic"]
+[ext_resource type="Script" uid="uid://c8g5klfwkpjyp" path="res://lego/Brick/InsertableFemaleSurface/insertable_female_surface.gd" id="5_g6isv"]
+[ext_resource type="Script" uid="uid://bjvi60uovjg7t" path="res://lego/Brick/StickyMaleSurface/sticky_male_surface.gd" id="5_yr7ic"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_krvha"]
+resource_local_to_scene = true
+material = ExtResource("2_btp41")
+size = Vector3(0.16, 0.095, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2tm4"]
+resource_local_to_scene = true
+material = ExtResource("2_8dugq")
+size = Vector3(0.21, 0.145, 0.29)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p5t4y"]
+resource_local_to_scene = true
+size = Vector3(0.16, 0.095, 0.24)
+
+[node name="Brick" type="Node3D"]
+script = ExtResource("1_iiodp")
+depth = 3
+
+[node name="BrickBody" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_krvha")
+
+[node name="Overlay" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_h2tm4")
+script = ExtResource("3_h2tm4")
+
+[node name="StickyFemaleSurface" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, -0.07, -0.08)
+script = ExtResource("4_p5t4y")
+width = 2
+depth = 3
+metadata/_custom_type_script = "uid://cjpcrpqv8gl6o"
+
+[node name="StickyMaleSurface" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0.055, -0.08)
+script = ExtResource("5_yr7ic")
+width = 2
+depth = 3
+metadata/_custom_type_script = "uid://bjvi60uovjg7t"
+
+[node name="Draggable" type="Area3D" parent="."]
+script = ExtResource("4_yr7ic")
+metadata/_custom_type_script = "uid://c0iglylg31sy1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draggable"]
+shape = SubResource("BoxShape3D_p5t4y")
+debug_color = Color(0, 0.6, 0.701961, 0.317647)
+
+[node name="InsertableFemaleSurface" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, -0.08)
+script = ExtResource("5_g6isv")
+width = 0
+depth = 3
+metadata/_custom_type_script = "uid://c8g5klfwkpjyp"

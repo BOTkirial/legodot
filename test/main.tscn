@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtsnj5ik71q6e"]
+
+[ext_resource type="Script" uid="uid://bau7hn1n175r3" path="res://test/main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d3r0mpi5vcpqm" path="res://test/staticCube.tscn" id="2_0xm2m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+ambient_light_color = Color(0.99558, 0.99558, 0.99558, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_h2yge")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.864222, 0.50311, 0, -0.50311, 0.864222, -5.05549, 16.3934, 6.07713)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0xm2m")
+
+[node name="sol" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1000, 0, 0, 0, 0.2, 0, 0, 0, 1000, -1.941, -0.5, -0.682)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.0293, 0)
+shadow_enabled = true
+omni_range = 74.2527
+
+[node name="Cage" type="Node3D" parent="."]
+transform = Transform3D(0.835913, 0, 0.548862, 0, 1, 0, -0.548862, 0, 0.835913, -0.972908, 0, -11.0852)
+
+[node name="mur1" parent="Cage" instance=ExtResource("2_0xm2m")]
+transform = Transform3D(13.465, 0, 0, 0, 9.85, 0, 0, 0, 1, -6.02, 4.54072, -3.65359)
+
+[node name="mur2" parent="Cage" instance=ExtResource("2_0xm2m")]
+transform = Transform3D(13.465, 0, 0, 0, 9.85, 0, 4.76837e-07, 0, 1, -6.18562, 4.54072, 9.56945)
+
+[node name="mur3" parent="Cage" instance=ExtResource("2_0xm2m")]
+transform = Transform3D(0.026791, 0, -0.999998, 0, 9.85, 0, 13.465, 0, 0.00198968, 0.0109372, 4.54072, 2.9058)
+
+[node name="mur4" parent="Cage" instance=ExtResource("2_0xm2m")]
+transform = Transform3D(0.026791, 0, -0.999998, 0, 9.85, 0, 13.465, 0, 0.00198968, -13.1053, 4.54072, 2.9058)
+
+[node name="spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13755, 17.9748, -5.79992)

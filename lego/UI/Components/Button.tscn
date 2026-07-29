@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://by5q1802xh0mj"]
+
+[ext_resource type="Script" uid="uid://bwuqdls3xdoti" path="res://lego/UI/Components/button.gd" id="1_7unh8"]
+[ext_resource type="FontFile" uid="uid://b2b3rs3rapvvl" path="res://lego/UI/Fonts/Zenith.ttf" id="2_qktjw"]
+
+[node name="Button" type="Control"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7unh8")
+
+[node name="backgroundPolygon" type="Polygon2D" parent="."]
+color = Color(0.780392, 0.0823529, 0.521569, 1)
+polygon = PackedVector2Array(12, 0, 0, 12, 0, 10, -2, 10, 10, -2, 10, 0)
+
+[node name="backgroundPolygonLines" type="Line2D" parent="backgroundPolygon"]
+points = PackedVector2Array(12, 0, 0, 12, 0, 10, -2, 10, 10, -2, 10, 0)
+closed = true
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="frontPolygon" type="Polygon2D" parent="."]
+color = Color(0.780392, 0.0823529, 0.521569, 1)
+polygon = PackedVector2Array(12, -2, 12, 0, 10, 0, 10, -2)
+
+[node name="frontPolygonLines" type="Line2D" parent="frontPolygon"]
+points = PackedVector2Array(12, -2, 12, 0, 10, 0, 10, -2)
+closed = true
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="frontLine" type="Line2D" parent="frontPolygon"]
+points = PackedVector2Array(0, 10, 12, -2)
+closed = true
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 89.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("2_qktjw")
+theme_override_font_sizes/font_size = 24
+text = "button"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd3h2oc44u8gr"]
+
+[ext_resource type="Script" uid="uid://l1brfol10j0w" path="res://lego/UI/brick_configurator.gd" id="1_12jep"]
+[ext_resource type="PackedScene" uid="uid://by5q1802xh0mj" path="res://lego/UI/Components/Button.tscn" id="1_w4avo"]
+
+[node name="BrickConfigurator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_12jep")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="window" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -146.5
+offset_right = 255.0
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="window"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="window/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainerTabs" type="HBoxContainer" parent="window/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PresetButton" parent="window/MarginContainer/VBoxContainer/HBoxContainerTabs" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+BUTTON_SPACE = 3.0
+BORDER_WIDTH = 2.0
+FONT_SIZE = 10
+text = "presets"
+color = Color(0.937255, 0.32549, 0.313726, 1)
+
+[node name="BrickButton" parent="window/MarginContainer/VBoxContainer/HBoxContainerTabs" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+BUTTON_SPACE = 3.0
+BORDER_WIDTH = 2.0
+FONT_SIZE = 10
+text = "bricks"
+color = Color(0.92549, 0.25098, 0.478431, 1)
+
+[node name="BeamButton" parent="window/MarginContainer/VBoxContainer/HBoxContainerTabs" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+BUTTON_SPACE = 3.0
+BORDER_WIDTH = 2.0
+FONT_SIZE = 10
+text = "beams"
+color = Color(0.670588, 0.278431, 0.737255, 1)
+
+[node name="GearButton" parent="window/MarginContainer/VBoxContainer/HBoxContainerTabs" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+BUTTON_SPACE = 3.0
+BORDER_WIDTH = 2.0
+FONT_SIZE = 10
+text = "gears"
+color = Color(0.494118, 0.341176, 0.760784, 1)
+
+[node name="AxleButton" parent="window/MarginContainer/VBoxContainer/HBoxContainerTabs" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+BUTTON_SPACE = 3.0
+BORDER_WIDTH = 2.0
+FONT_SIZE = 10
+text = "axles"
+color = Color(0.360784, 0.419608, 0.752941, 1)
+
+[node name="EngineButton" parent="window/MarginContainer/VBoxContainer/HBoxContainerTabs" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+BUTTON_SPACE = 3.0
+BORDER_WIDTH = 2.0
+FONT_SIZE = 10
+text = "engine"
+color = Color(0.258824, 0.647059, 0.960784, 1)
+
+[node name="Label" type="Label" parent="window/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ajouter à la scène"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="window/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="window/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="window/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_w4avo")]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+text = "Ajouter"
+color = Color(0.780392, 0.0823529, 0.521569, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="window/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="window/MarginContainer/VBoxContainer/HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4

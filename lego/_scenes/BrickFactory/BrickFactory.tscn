@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd0fybl5mos8w"]
+
+[ext_resource type="PackedScene" uid="uid://dsofw05c7xi0" path="res://lego/_commons/Cameras/OrbitCamera/OrbitCamera.tscn" id="1_th5ho"]
+[ext_resource type="PackedScene" uid="uid://bcm63af487n6n" path="res://lego/Brick/Brick.tscn" id="2_n2lqd"]
+
+[node name="BrickFactory" type="Node3D"]
+
+[node name="CameraRig" parent="." instance=ExtResource("1_th5ho")]
+
+[node name="Brick" parent="." instance=ExtResource("2_n2lqd")]

@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Test"
+run/main_scene="uid://cela6k1mbatg1"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Utils="*res://lego/_commons/utils.gd"
+MechanicUtils="*res://lego/_commons/mechanic_utils.gd"
+
+[editor]
+
+movie_writer/movie_file="/home/cedric.marinot@elosi.lan/test/movies/movie.avi"
+
+[file_customization]
+
+folder_colors={
+"res://lego/Brick/": "orange",
+"res://lego/Insertable/": "yellow",
+"res://lego/UI/": "green",
+"res://lego/_commons/": "pink",
+"res://lego/_scenes/": "pink"
+}
+
+[gui]
+
+theme/custom="uid://ni0ra7j1rkt"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"

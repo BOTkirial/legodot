@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsofw05c7xi0"]
+
+[ext_resource type="Script" uid="uid://dw8c3acuy1142" path="res://lego/_commons/Cameras/OrbitCamera/orbit_camera.gd" id="1_t3pxv"]
+
+[node name="CameraRig" type="Node3D"]
+script = ExtResource("1_t3pxv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.195507, -0.0119911, 4.20997)
+current = true

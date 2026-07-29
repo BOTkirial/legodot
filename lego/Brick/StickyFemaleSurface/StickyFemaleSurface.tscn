@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmbkg4abe5a"]
+
+[ext_resource type="Script" uid="uid://cjpcrpqv8gl6o" path="res://lego/Brick/StickyFemaleSurface/sticky_female_surface.gd" id="1_nc2e4"]
+
+[node name="StickableSurface" type="Node3D"]
+script = ExtResource("1_nc2e4")
+width = 6
+depth = 3

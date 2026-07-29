@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmuqfmrdbhgut"]
+
+[ext_resource type="Script" uid="uid://bybak1ea4vcac" path="res://lego/Brick/StickyFemaleSurface/StickyFemalePin/sticky_female_pin.gd" id="1_463rr"]
+[ext_resource type="Material" uid="uid://dni1ugve8k7q8" path="res://lego/_commons/Materials/Overlay/overlay_material.tres" id="2_v4knd"]
+[ext_resource type="Script" uid="uid://ce5wg26m4m4lc" path="res://lego/_commons/Materials/Overlay/brick_overlay.gd" id="3_81hpo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0svrb"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_w1bug"]
+radius = 0.02
+height = 0.04
+
+[sub_resource type="SphereMesh" id="SphereMesh_1ywuv"]
+material = ExtResource("2_v4knd")
+radius = 0.03
+height = 0.06
+
+[node name="StickyPin" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_0svrb")
+mesh = SubResource("SphereMesh_w1bug")
+script = ExtResource("1_463rr")
+
+[node name="Overlay" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1ywuv")
+script = ExtResource("3_81hpo")
+metadata/_custom_type_script = "uid://ce5wg26m4m4lc"
